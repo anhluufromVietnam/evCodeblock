@@ -3,71 +3,48 @@ export const toolbox = {
     'contents': [
         {
             'kind': 'category',
-            'name': 'Generated Code',
+            'name': 'Phép toán',
+            'colour': 230,
             'contents': [
                 {
                     'kind': 'block',
-                    'type': 'object'  // This should match the block type defined in json.js
-                }
-            ]
-        },
-        {
-            'kind': 'category',
-            'name': 'Main Workspace',
-            'contents': [
-                {
-                    'kind': 'block',
-                    'type': 'math_number'
+                    'type': 'text_block'
                 },
                 {
                     'kind': 'block',
-                    'type': 'logic_boolean'
+                    'type': 'number_block'
                 },
                 {
                     'kind': 'block',
-                    'type': 'lists_create_with'
-                }
-            ]
-        },
-        {
-            'kind': 'category',
-            'name': 'Output Display',
-            'contents': [
-                {
-                    'kind': 'block',
-                    'type': 'member'  // This should match the block type defined in json.js
+                    'type': 'math_add'
                 },
                 {
                     'kind': 'block',
-                    'type': 'logic_null'
-                }
-            ]
-        },
-        {
-            'kind': 'category',
-            'name': 'String',
-            'contents': [
-                {
-                    'kind': 'block',
-                    'type': 'text'  // This should match the block type defined in json.js
+                    'type': 'math_subtract'
                 },
                 {
                     'kind': 'block',
-                    'type': 'print'
-                }
-            ]
-        },
-        {
-            'kind': 'category',
-            'name': 'Di chuyển',
-            'contents': [
-                {
-                    'kind': 'block',
-                    'type': 'move'
+                    'type': 'math_multiply'
                 },
                 {
                     'kind': 'block',
-                    'type': 'up'
+                    'type': 'math_divide'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_random_int'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_modulo'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_round'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_compare'
                 }
             ]
         }

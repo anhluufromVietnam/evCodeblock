@@ -13,6 +13,9 @@ const config = {
   // Enable webpack-dev-server to get hot refresh of the app.
   devServer: {
     static: './build',
+    port: process.env.PORT || 8080, 
+    host: '0.0.0.0', // Cho phép truy cập từ các địa chỉ IP ngoài
+    open: true,
   },
   module: {
     rules: [

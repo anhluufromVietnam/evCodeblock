@@ -13,6 +13,7 @@ const config = {
   // Enable webpack-dev-server to get hot refresh of the app.
   devServer: {
     static: './build',
+    port: process.env.PORT || 8080, // Sử dụng cổng Heroku hoặc cổng mặc định
   },
   module: {
     rules: [

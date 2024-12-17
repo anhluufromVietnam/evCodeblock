@@ -211,10 +211,6 @@ export const toolbox = {
                             'kind': 'block',
                             'type': 'second'
                         },
-                        // {
-                        //     'kind': 'block',
-                        //     'type': 'degree'
-                        // }
                     ]
                 },
         //KIENSON

@@ -130,22 +130,66 @@ jsonGenerator.forBlock['turn_right'] = function (block, generator) {
 
 //Thao tác di chuyển vĩnh cửu
 jsonGenerator.forBlock['move_forward_infi'] = function (block, generator) {
-  const code = `while (true) {\n  sendData("W");\n}\n`;
+  const code = `
+    if (!running) {
+      running = true;
+      const moveForward = () => {
+        if (running) {
+          sendData("W");
+          requestAnimationFrame(moveForward); 
+        }
+      };
+      moveForward();
+    }
+  `;
   return code;
 };
 
 jsonGenerator.forBlock['move_backward_infi'] = function (block, generator) {
-  const code = `while (true) {\n  sendData("S");\n}\n`;
+  const code = `
+    if (!running) {
+      running = true;
+      const moveBackward = () => {
+        if (running) {
+          sendData("S");
+          requestAnimationFrame(moveBackward); 
+        }
+      };
+      moveBackward();
+    }
+  `;
   return code;
 };
 
 jsonGenerator.forBlock['turn_left_infi'] = function (block, generator) {
-  const code = `while (true) {\n  sendData("A");\n}\n`;
+  const code = `
+    if (!running) {
+      running = true;
+      const turnLeft = () => {
+        if (running) {
+          sendData("A");
+          requestAnimationFrame(turnLeft); 
+        }
+      };
+      turnLeft();
+    }
+  `;
   return code;
 };
 
 jsonGenerator.forBlock['turn_right_infi'] = function (block, generator) {
-  const code = `while (true) {\n  sendData("D");\n}\n`;
+  const code = `
+    if (!running) {
+      running = true;
+      const turnRight = () => {
+        if (running) {
+          sendData("W");
+          requestAnimationFrame(turnRight); 
+        }
+      };
+      turnRight();
+    }
+  `;
   return code;
 };
 
@@ -174,7 +218,7 @@ jsonGenerator.forBlock['stop'] = function (block, generated) {
 // };
 
 //Giá trị
-jsonGenerator.forBlock['second'] = function (block, generated){
+jsonGenerator.forBlock['second'] = function (block, generated) {
   const code = String(block.getFieldValue('NUM'));
   return [code, Order.ATOMIC];
 }

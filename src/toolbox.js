@@ -145,6 +145,7 @@ export const toolbox = {
         {
                     'kind': 'category',
                     'name': 'Di chuyển',
+                    'color': 210,
                     'contents': [
                         {
                             'kind': 'block',
@@ -177,6 +178,10 @@ export const toolbox = {
                         {
                             'kind': 'block',
                             'type': 'turn_right_infi'
+                        },
+                        {
+                            'kind': 'block',
+                            'type': 'stop'
                         }
                     ]
                 },
@@ -204,12 +209,12 @@ export const toolbox = {
                     'contents': [
                         {
                             'kind': 'block',
-                            'type': 'step'
+                            'type': 'second'
                         },
-                        {
-                            'kind': 'block',
-                            'type': 'degree'
-                        }
+                        // {
+                        //     'kind': 'block',
+                        //     'type': 'degree'
+                        // }
                     ]
                 },
         //KIENSON

@@ -397,7 +397,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "colour": 210,
   },
   {
-    "type": "stop",
+    "type": "stopMovement",
     "message0": "%1 ",
     "args0": [{
       "type": "field_label",

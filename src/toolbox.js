@@ -181,7 +181,7 @@ export const toolbox = {
                         },
                         {
                             'kind': 'block',
-                            'type': 'stop'
+                            'type': 'stopMovement'
                         }
                     ]
                 },

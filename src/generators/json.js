@@ -194,7 +194,7 @@ jsonGenerator.forBlock['turn_right_infi'] = function (block, generator) {
 };
 
 //Dừng động cơ
-jsonGenerator.forBlock['stop'] = function (block, generated) {
+jsonGenerator.forBlock['stopMovement'] = function (block, generated) {
   const code = `sendData('F')`
   return code;
 }

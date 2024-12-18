@@ -266,6 +266,7 @@ export const toolbox = {
                 }
             ]
         },
+        //
         {
             "kind": "category",
             "name": "Dynamic Variables",

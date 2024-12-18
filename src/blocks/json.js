@@ -489,7 +489,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "number_block",
-    "message0": "khối số %1",
+    "message0": "%1",
     "args0": [
       {
         "type": "field_number",
@@ -504,75 +504,59 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "math_add",
-    "message0": "(%1) + (%2)",
+    "message0": "%1 + %2",
     "args0": [
       {
         "type": "field_number",
-        "name": "A",
-        "check": "Number"
+        "name": "NUM1",
+        "value": 0
       },
       {
         "type": "field_number",
-        "name": "B",
-        "check": "Number"
+        "name": "NUM2",
+        "value": 0
       }
     ],
     "output": "Number",
-    "colour": 230
+    "colour": 230,
+    "tooltip": "Thực hiện phép cộng hai số.",
+    "helpUrl": ""
   },
   {
     "type": "math_subtract",
-    "message0": "(%1) - (%2)",
+    "message0": "%1 - %2",
     "args0": [
-      {
-        "type": "field_number",
-        "name": "A",
-        "check": "Number"
-      },
-      {
-        "type": "field_number",
-        "name": "B",
-        "check": "Number"
-      }
+      { "type": "field_number", "name": "NUM1", "value": 0 },
+      { "type": "field_number", "name": "NUM2", "value": 0 }
     ],
     "output": "Number",
-    "colour": 230
+    "colour": 230,
+    "tooltip": "Thực hiện phép trừ hai số.",
+    "helpUrl": ""
   },
   {
     "type": "math_multiply",
-    "message0": "(%1) * (%2)",
+    "message0": "%1 × %2",
     "args0": [
-      {
-        "type": "field_number",
-        "name": "A",
-        "check": "Number"
-      },
-      {
-        "type": "field_number",
-        "name": "B",
-        "check": "Number"
-      }
+      { "type": "field_number", "name": "NUM1", "value": 0 },
+      { "type": "field_number", "name": "NUM2", "value": 0 }
     ],
     "output": "Number",
-    "colour": 230
+    "colour": 230,
+    "tooltip": "Thực hiện phép nhân hai số.",
+    "helpUrl": ""
   },
   {
     "type": "math_divide",
-    "message0": "(%1) / (%2)",
+    "message0": "%1 ÷ %2",
     "args0": [
-      {
-        "type": "field_number",
-        "name": "A",
-        "check": "Number"
-      },
-      {
-        "type": "field_number",
-        "name": "B",
-        "check": "Number"
-      }
+      { "type": "field_number", "name": "NUM1", "value": 0 },
+      { "type": "field_number", "name": "NUM2", "value": 1 }
     ],
     "output": "Number",
-    "colour": 230
+    "colour": 230,
+    "tooltip": "Thực hiện phép chia hai số.",
+    "helpUrl": ""
   },
   {
     "type": "math_random_int",
@@ -581,12 +565,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       {
         "type": "field_number",
         "name": "FROM",
-        "check": "Number"
+        "value": 0 // Giá trị mặc định
       },
       {
         "type": "field_number",
         "name": "TO",
-        "check": "Number"
+        "value": 10 // Giá trị mặc định
       }
     ],
     "output": "Number",
@@ -599,12 +583,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       {
         "type": "field_number",
         "name": "DIVIDEND",
-        "check": "Number"
+        "value": 0 // Giá trị mặc định
       },
       {
         "type": "field_number",
         "name": "DIVISOR",
-        "check": "Number"
+        "value": 1 // Giá trị mặc định
       }
     ],
     "output": "Number",
@@ -617,7 +601,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       {
         "type": "field_number",
         "name": "NUM",
-        "check": "Number"
+        "value": 0 // Giá trị mặc định
       }
     ],
     "output": "Number",
@@ -630,7 +614,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       {
         "type": "field_number",
         "name": "A",
-        "check": "Number"
+        "value": 0 // Giá trị mặc định
       },
       {
         "type": "field_dropdown",
@@ -646,15 +630,15 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       {
         "type": "field_number",
         "name": "B",
-        "check": "Number"
+        "value": 0 // Giá trị mặc định
       }
     ],
     "output": "Boolean",
     "colour": 230
   },
+  //EndKIENSON
+
   //VAR
-
-
   {
     "type": "variables_set",
     "message0": "set %1 to %2",
@@ -690,9 +674,4 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "tooltip": "Retrieve the value of a dynamically created variable.",
     "helpUrl": ""
   }
-
-
-
-
-
 ]);

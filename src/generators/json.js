@@ -105,7 +105,7 @@ jsonGenerator.forBlock['object'] = function(block, generator) {
 jsonGenerator.forBlock['move_forward'] = function (block, generator) {
   const value = generator.valueToCode(
     block, 'MEMBER_VALUE', Order.ATOMIC);
-  const code = `Tiến lên (${value}) bước!;\n`;
+  const code = `sendData("W");\n` + `await delay(${value});\n`;
   return code;
 };
 

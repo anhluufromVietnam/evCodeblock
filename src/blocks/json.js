@@ -305,8 +305,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
             },
             {"type" : "field_label", "name" : "COLON", "text" : ":"}, {
                 "type" : "input_value",
-                "name" : "MEMBER_VALUE",
-                "check" : "StepNumber"
+                "name" : "MEMBER_VALUE"
             }
         ],
         "previousStatement" : null,
@@ -324,8 +323,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
             },
             {"type" : "field_label", "name" : "COLON", "text" : ":"}, {
                 "type" : "input_value",
-                "name" : "MEMBER_VALUE",
-                "check" : "StepNumber"
+                "name" : "MEMBER_VALUE"
             }
         ],
         "previousStatement" : null,

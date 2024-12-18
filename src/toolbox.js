@@ -74,6 +74,7 @@ export const toolbox = {
         {
                     'kind': 'category',
                     'name': 'Hiển thị',
+                    "colour": "f500ff",
                     'contents': [
                         {
                             'kind': 'block',
@@ -88,6 +89,7 @@ export const toolbox = {
                 {
                     'kind': 'category',
                     'name': 'Điều khiển',
+                    "colour": "#ff9300",
                     'contents': [
                         {
                             'kind': 'block',
@@ -126,6 +128,7 @@ export const toolbox = {
                 {
                     'kind': 'category',
                     'name': 'Cảm biến',
+                    "colour": "00e4ff",
                     'contents': [
                         {
                             'kind': 'block',
@@ -145,6 +148,7 @@ export const toolbox = {
         {
                     'kind': 'category',
                     'name': 'Di chuyển',
+                    "colour": 210,
                     'contents': [
                         {
                             'kind': 'block',
@@ -177,12 +181,17 @@ export const toolbox = {
                         {
                             'kind': 'block',
                             'type': 'turn_right_infi'
+                        },
+                        {
+                            'kind': 'block',
+                            'type': 'stopMovement'
                         }
                     ]
                 },
                 {
                     'kind': 'category',
                     'name': 'Chuyển động linh kiện',
+                    "colour": 180,
                     'contents': [
                         {
                             'kind': 'block',
@@ -201,15 +210,12 @@ export const toolbox = {
                 {
                     'kind': 'category',
                     'name': 'Giá trị',
+                    "colour": 120,
                     'contents': [
                         {
                             'kind': 'block',
-                            'type': 'step'
+                            'type': 'second'
                         },
-                        {
-                            'kind': 'block',
-                            'type': 'degree'
-                        }
                     ]
                 },
         //KIENSON

@@ -487,7 +487,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   //KIENSON
   {
     "type": "text_block",
-    "message0": "khối chữ %1",
+    "message0": "%1",
     "args0": [
       {
         "type": "field_input",
@@ -500,7 +500,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "number_block",
-    "message0": "khối số %1",
+    "message0": "%1",
     "args0": [
       {
         "type": "field_number",
@@ -515,17 +515,17 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "math_add",
-    "message0": "(%1) + (%2)",
+    "message0": "%1 + %2",
     "args0": [
       {
-        "type": "field_number",
-        "name": "A",
-        "check": "Number"
+        "type": "input_value",
+        "name": "NUM1",
+        "value": 0
       },
       {
-        "type": "field_number",
-        "name": "B",
-        "check": "Number"
+        "type": "input_value",
+        "name": "NUM2",
+        "value": 0
       }
     ],
     "output": "Number",
@@ -536,12 +536,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "(%1) - (%2)",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
       }
@@ -554,12 +554,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "(%1) * (%2)",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
       }
@@ -572,12 +572,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "(%1) / (%2)",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
       }
@@ -590,12 +590,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "lấy ngẫu nhiên từ %1 đến %2",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "FROM",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "TO",
         "check": "Number"
       }
@@ -608,12 +608,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "%1 chia lấy dư cho %2",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "DIVIDEND",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "DIVISOR",
         "check": "Number"
       }
@@ -626,7 +626,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "làm tròn %1",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "NUM",
         "check": "Number"
       }
@@ -636,10 +636,10 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "math_compare",
-    "message0": "%1 %2 %3",
+    "message0": "%1 %2 %3 %4",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
@@ -655,10 +655,11 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         ]
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
-      }
+      },
+      { "type": "field_label", "name": "COLON", "text": "" }
     ],
     "output": "Boolean",
     "colour": 230

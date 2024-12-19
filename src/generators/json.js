@@ -315,6 +315,8 @@ jsonGenerator.forBlock['ultrasonic_sensor2_status'] = function (block) {
 //ANH LUU VAR
 
 
+//thiếu mathchange
+
 // JSON-based generator for 'variables_set' block
 jsonGenerator.forBlock['variables_set'] = function (block) {
   const variable = block.getFieldValue('VAR');  // Retrieve the user-defined variable name
@@ -329,6 +331,101 @@ jsonGenerator.forBlock['variables_get'] = function (block) {
   const code = `${variable}`;  // Return the variable name
   return [code, 0];  // Return the variable with atomic order (no extra operations)
 };
+
+//KIEN SON START
+
+jsonGenerator.forBlock['text_block'] = function (block) {
+  const text = block.getFieldValue('TEXT');
+  return `"${text}"`;
+};
+
+jsonGenerator.forBlock['number_block'] = function (block) {
+  const number = block.getFieldValue('NUM');
+  return [number !== null ? number.toString() : '0', Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_add'] = function (block, generator) {
+    const value1 = generator.valueToCode(
+      block, 'NUM1', Order.ATOMIC);
+    const value2 = generator.valueToCode(
+      block, 'NUM2', Order.ATOMIC);
+  const num1 = block.getFieldValue('NUM1');
+  const num2 = block.getFieldValue('NUM2');
+  const result = `"${num1}" + "${num2}"`;
+  return [`${value1} + ${value2}`, Order.ATOMIC];
+};
+
+
+jsonGenerator.forBlock['math_subtract'] = function (block) {
+  const num1 = block.getFieldValue('NUM1');
+  const num2 = block.getFieldValue('NUM2');
+  const result = Number(num1) - Number(num2);
+  return [String(result), Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_multiply'] = function (block) {
+  const num1 = block.getFieldValue('NUM1');
+  const num2 = block.getFieldValue('NUM2');
+  const result = Number(num1) * Number(num2);
+  return [String(result), Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_divide'] = function (block) {
+  const num1 = block.getFieldValue('NUM1');
+  const num2 = block.getFieldValue('NUM2');
+  const result = Number(num1) / Number(num2);
+  return [String(result), Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_random_int'] = function (block) {
+  const from = block.getFieldValue('FROM'); // Lấy giá trị từ field_number
+  const to = block.getFieldValue('TO'); // Lấy giá trị từ field_number
+  const result = Math.floor(Math.random() * (Number(to) - Number(from) + 1)) + Number(from);
+  return [String(result), Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_modulo'] = function (block) {
+  const dividend = block.getFieldValue('DIVIDEND'); // Lấy giá trị từ field_number
+  const divisor = block.getFieldValue('DIVISOR'); // Lấy giá trị từ field_number
+  const result = Number(dividend) % Number(divisor);
+  return [String(result), Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_round'] = function (block) {
+  const num = block.getFieldValue('NUM'); // Lấy giá trị từ field_number
+  const result = Math.round(Number(num));
+  return [String(result), Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_compare'] = function (block) {
+  const a = block.getFieldValue('A'); // Lấy giá trị từ field_number
+  const op = block.getFieldValue('OP');
+  const b = block.getFieldValue('B'); // Lấy giá trị từ field_number
+
+  let result;
+  switch (op) {
+    case 'EQ':
+      result = Number(a) === Number(b);
+      break;
+    case 'GT':
+      result = Number(a) > Number(b);
+      break;
+    case 'LT':
+      result = Number(a) < Number(b);
+      break;
+    case 'GTE':
+      result = Number(a) >= Number(b);
+      break;
+    case 'LTE':
+      result = Number(a) <= Number(b);
+      break;
+    default:
+      result = false;
+  }
+  return [String(result), Order.ATOMIC];
+};
+
+//END HERE
 
 
 //End here

@@ -13,6 +13,7 @@ const config = {
   // Enable webpack-dev-server to get hot refresh of the app.
   devServer: {
     static: './build',
+    // overlay: false,
   },
   module: {
     rules: [

@@ -1,0 +1,34 @@
+CODE BLOCK 101, SAI THÌ VÀO SỬA HỘ
+
+//Để tạo block hãy tìm vào file theo đường dẫn: evCodeblock-main/src/blocks/json.js
+//json.js - nơi bạn sẽ define block
+//Cấu trúc cơ bản của một block như dưới sau phần comment này
+
+const addText = {
+  type: 'add_text',
+  message0: 'Add text %1',
+  args0: [
+    {
+      type: 'input_value',
+      name: 'TEXT',
+   //   check: 'String', // phần check này tạm thời không cần thiết, có thể gây lỗi
+    },
+  ],
+  previousStatement: null,
+  nextStatement: null,
+  colour: 160,
+  tooltip: '',
+  helpUrl: '',
+};
+
+cụ thể:
+// type: tên loại khối bạn muốn đặt
+//
+// 
+// 
+// 
+// 
+// 
+export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
+  addText,
+]);

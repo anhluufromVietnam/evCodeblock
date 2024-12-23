@@ -287,7 +287,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       { "type": "field_label", "name": "COLON", "text": ":" }, {
         "type": "input_value",
         "name": "MEMBER_VALUE",
-        "check": "StepNumber"
+        // "check": "TimeNumber"
       }
     ],
     "previousStatement": null,
@@ -305,8 +305,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       },
       { "type": "field_label", "name": "COLON", "text": ":" }, {
         "type": "input_value",
-        "name": "MEMBER_VALUE",
-        "check": "StepNumber"
+        "name": "MEMBER_VALUE"
       }
     ],
     "previousStatement": null,
@@ -325,7 +324,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       { "type": "field_label", "name": "COLON", "text": ":" }, {
         "type": "input_value",
         "name": "MEMBER_VALUE",
-        "check": "StepNumber"
+        // "check": "TimeNumber"
       }
     ],
     "previousStatement": null,
@@ -344,7 +343,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       { "type": "field_label", "name": "COLON", "text": ":" }, {
         "type": "input_value",
         "name": "MEMBER_VALUE",
-        "check": "StepNumber"
+        // "check": "TimeNumber"
       }
     ],
     "previousStatement": null,
@@ -397,6 +396,18 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "nextStatement": null,
     "colour": 210,
   },
+  {
+    "type": "stopMovement",
+    "message0": "%1 ",
+    "args0": [{
+      "type": "field_label",
+      "name": "MEMBER_NAME",
+      "text": "Dừng lại"
+    }],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 210,
+  },
   // Linh kiện
   {
     "type": "turn_up",
@@ -432,7 +443,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       { "type": "field_label", "name": "COLON", "text": ":" }, {
         "type": "input_value",
         "name": "MEMBER_VALUE",
-        "check": "DegreeNumber"
+        // "check": "DegreeNumber"
       }
     ],
     "previousStatement": null,
@@ -441,8 +452,8 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   // Giá trị
   {
-    "type": "step",
-    "message0": "%1 bước",
+    "type": "second",
+    "message0": "%1 s",
     "args0": [
       {
         "type": "field_number",
@@ -452,31 +463,31 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         "precision": "1"
       },
     ],
-    "output": "StepNumber",
+    "output": "TimeNumber",
     "colour": 120,
-    "tooltip": "Số bước ",
+    "tooltip": "Số giây",
   },
-  {
-    "type": "degree",
-    "message0": "%1 độ",
-    "args0": [
-      {
-        "type": "field_number",
-        "name": "NUM",
-        "value": "0",
-        "min": "0",
-        "max": "180",
-        "precision": "1"
-      },
-    ],
-    "output": "DegreeNumber",
-    "colour": 120,
-    "tooltip": "Góc quay ",
-  },
+  // {
+  //   "type": "degree",
+  //   "message0": "%1 độ",
+  //   "args0": [
+  //     {
+  //       "type": "field_number",
+  //       "name": "NUM",
+  //       "value": "0",
+  //       "min": "0",
+  //       "max": "180",
+  //       "precision": "1"
+  //     },
+  //   ],
+  //   "output": "DegreeNumber",
+  //   "colour": 120,
+  //   "tooltip": "Góc quay ",
+  // },
   //KIENSON
   {
     "type": "text_block",
-    "message0": "khối chữ %1",
+    "message0": "%1",
     "args0": [
       {
         "type": "field_input",
@@ -489,7 +500,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "number_block",
-    "message0": "khối số %1",
+    "message0": "%1",
     "args0": [
       {
         "type": "field_number",
@@ -504,17 +515,17 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "math_add",
-    "message0": "(%1) + (%2)",
+    "message0": "%1 + %2",
     "args0": [
       {
-        "type": "field_number",
-        "name": "A",
-        "check": "Number"
+        "type": "input_value",
+        "name": "NUM1",
+        "value": 0
       },
       {
-        "type": "field_number",
-        "name": "B",
-        "check": "Number"
+        "type": "input_value",
+        "name": "NUM2",
+        "value": 0
       }
     ],
     "output": "Number",
@@ -525,12 +536,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "(%1) - (%2)",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
       }
@@ -543,12 +554,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "(%1) * (%2)",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
       }
@@ -561,12 +572,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "(%1) / (%2)",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
       }
@@ -579,12 +590,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "lấy ngẫu nhiên từ %1 đến %2",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "FROM",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "TO",
         "check": "Number"
       }
@@ -597,12 +608,12 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "%1 chia lấy dư cho %2",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "DIVIDEND",
         "check": "Number"
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "DIVISOR",
         "check": "Number"
       }
@@ -615,7 +626,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "message0": "làm tròn %1",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "NUM",
         "check": "Number"
       }
@@ -625,10 +636,10 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "math_compare",
-    "message0": "%1 %2 %3",
+    "message0": "%1 %2 %3 %4",
     "args0": [
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "A",
         "check": "Number"
       },
@@ -644,10 +655,11 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         ]
       },
       {
-        "type": "field_number",
+        "type": "input_value",
         "name": "B",
         "check": "Number"
-      }
+      },
+      { "type": "field_label", "name": "COLON", "text": "" }
     ],
     "output": "Boolean",
     "colour": 230

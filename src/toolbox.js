@@ -181,6 +181,10 @@ export const toolbox = {
                 {
                     'kind': 'block',
                     'type': 'turn_right_infi'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'stopMovement'
                 }
             ]
         },
@@ -210,12 +214,8 @@ export const toolbox = {
             'contents': [
                 {
                     'kind': 'block',
-                    'type': 'step'
+                    'type': 'second'
                 },
-                {
-                    'kind': 'block',
-                    'type': 'degree'
-                }
             ]
         },
         //KIENSON

@@ -397,15 +397,20 @@ jsonGenerator.forBlock['math_round'] = function (block) {
   return [String(result), Order.ATOMIC];
 };
 
-jsonGenerator.forBlock['math_compare'] = function (block) {
+jsonGenerator.forBlock['math_compare'] = function (block, generator) {
   const a = block.getFieldValue('A'); // Lấy giá trị từ field_number
   const op = block.getFieldValue('OP');
   const b = block.getFieldValue('B'); // Lấy giá trị từ field_number
+    const value2 = generator.valueToCode(
+      block, 'A', Order.ATOMIC);
+    const value1 = generator.valueToCode(
+      block, 'B', Order.ATOMIC);
 
   let result;
   switch (op) {
     case 'EQ':
-      result = Number(a) === Number(b);
+    result = `${value1} === ${value2}`;
+      //result = Number(a) === Number(b);
       break;
     case 'GT':
       result = Number(a) > Number(b);
@@ -422,7 +427,7 @@ jsonGenerator.forBlock['math_compare'] = function (block) {
     default:
       result = false;
   }
-  return [String(result), Order.ATOMIC];
+  return [result, Order.ATOMIC];
 };
 
 //END HERE

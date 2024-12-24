@@ -315,6 +315,8 @@ jsonGenerator.forBlock['ultrasonic_sensor2_status'] = function (block) {
 //ANH LUU VAR
 
 
+//thiếu mathchange
+
 // JSON-based generator for 'variables_set' block
 jsonGenerator.forBlock['variables_set'] = function (block) {
   const variable = block.getFieldValue('VAR');  // Retrieve the user-defined variable name
@@ -329,6 +331,96 @@ jsonGenerator.forBlock['variables_get'] = function (block) {
   const code = `${variable}`;  // Return the variable name
   return [code, 0];  // Return the variable with atomic order (no extra operations)
 };
+
+//KIEN SON START
+
+jsonGenerator.forBlock['text_block'] = function (block) {
+  const text = block.getFieldValue('TEXT');
+  return `"${text}"`;
+};
+
+jsonGenerator.forBlock['number_block'] = function (block) {
+  const number = block.getFieldValue('NUM');
+  return [number !== null ? number.toString() : '0', Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_add'] = function (block, generator) {
+  const value1 = generator.valueToCode(block, 'NUM1', Order.ATOMIC) || '0';
+  const value2 = generator.valueToCode(block, 'NUM2', Order.ATOMIC) || '0';
+  return [`(${value1}) + (${value2})`, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_subtract'] = function (block, generator) {
+  const value1 = generator.valueToCode(block, 'A', Order.ATOMIC) || '0';
+  const value2 = generator.valueToCode(block, 'B', Order.ATOMIC) || '0';
+  return [`(${value1}) - (${value2})`, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_multiply'] = function (block, generator) {
+  const value1 = generator.valueToCode(block, 'A', Order.ATOMIC) || '0';
+  const value2 = generator.valueToCode(block, 'B', Order.ATOMIC) || '0';
+  return [`(${value1}) * (${value2})`, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_divide'] = function (block, generator) {
+  const value1 = generator.valueToCode(block, 'A', Order.ATOMIC) || '0';
+  const value2 = generator.valueToCode(block, 'B', Order.ATOMIC) || '1'; // tránh chia cho 0
+  return [`(${value1}) / (${value2})`, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_random_int'] = function (block, generator) {
+  const from = generator.valueToCode(block, 'FROM', Order.ATOMIC) || '0';
+  const to = generator.valueToCode(block, 'TO', Order.ATOMIC) || '0';
+  const result = `Math.floor(Math.random() * (${to} - ${from} + 1)) + ${from}`;
+  return [result, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_modulo'] = function (block, generator) {
+  const dividend = generator.valueToCode(block, 'DIVIDEND', Order.ATOMIC) || '0';
+  const divisor = generator.valueToCode(block, 'DIVISOR', Order.ATOMIC) || '1'; // Tránh chia cho 0
+  const result = `${dividend} % ${divisor}`;
+  return [result, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['math_round'] = function (block, generator) {
+  const num = generator.valueToCode(block, 'NUM', Order.ATOMIC) || '0';
+  const result = `Math.round(${num})`;
+  return [result, Order.ATOMIC];
+};
+
+
+jsonGenerator.forBlock['math_compare'] = function (block, generator) {
+  const a = generator.valueToCode(block, 'A', Order.ATOMIC) || '0';
+  const b = generator.valueToCode(block, 'B', Order.ATOMIC) || '0';
+  const operator = block.getFieldValue('OP');
+  let jsOperator = '==';
+
+  switch (operator) {
+    case 'EQ':
+      jsOperator = '==';
+      break;
+    case 'GT':
+      jsOperator = '>';
+      break;
+    case 'LT':
+      jsOperator = '<';
+      break;
+    case 'GTE':
+      jsOperator = '>=';
+      break;
+    case 'LTE':
+      jsOperator = '<=';
+      break;
+    default:
+      jsOperator = '==';
+  }
+
+  const result = `${a} ${jsOperator} ${b}`;
+  return [result, Order.ATOMIC];
+};
+
+
+//END HERE
 
 
 //End here

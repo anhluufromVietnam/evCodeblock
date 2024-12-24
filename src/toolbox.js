@@ -220,67 +220,67 @@ export const toolbox = {
                 },
         //KIENSON
         {
-                   'kind': 'category',
-                   'name': 'Phép toán',
-                   'colour': 230,
-                   'contents': [
-                       {
-                           'kind': 'block',
-                           'type': 'text_block'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'number_block'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_add'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_subtract'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_multiply'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_divide'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_random_int'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_modulo'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_round'
-                       },
-                       {
-                           'kind': 'block',
-                           'type': 'math_compare'
-                       }
-                   ]
-               },
+            'kind': 'category',
+            'name': 'Phép toán',
+            'colour': 230,
+            'contents': [
+                {
+                    'kind': 'block',
+                    'type': 'text_block'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'number_block'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_add'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_subtract'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_multiply'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_divide'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_random_int'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_modulo'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_round'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'math_compare'
+                }
+            ]
+        },
         {
-          "kind": "category",
-          "name": "Dynamic Variables",
-          "custom": "VARIABLE",  // Enables dynamic variable creation
-          "colour": 330,
-          "contents": [
-            {
-              "kind": "block",
-              "type": "variables_set"  // Use the custom dynamic_var_set block type
-            },
-            {
-              "kind": "block",
-              "type": "variables_get"  // Use the custom dynamic_var_get block type
-            }
-          ]
+            "kind": "category",
+            "name": "Dynamic Variables",
+            "custom": "VARIABLE",  // Enables dynamic variable creation
+            "colour": 330,
+            "contents": [
+                {
+                    "kind": "block",
+                    "type": "variables_set"  // Use the custom dynamic_var_set block type
+                },
+                {
+                    "kind": "block",
+                    "type": "variables_get"  // Use the custom dynamic_var_get block type
+                }
+            ]
         }
     ]
 };

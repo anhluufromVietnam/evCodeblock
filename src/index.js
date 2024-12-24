@@ -24,34 +24,41 @@ const ws = Blockly.inject(blocklyDiv, {toolbox});
 //ANHLUU MODIFIED FOR CODE VAR
 // Function to process generated code and ensure only the first instance of each variable is declared with 'let'
 function processCodeWithLet(code) {
-  let lines = code.split('\n');  // Split the code into individual lines
+  let lines = code.split('\n'); // Split the code into individual lines
   let declaredVariables = {};  // Track declared variables
+
+  // Regular expression to match only assignment lines (e.g., `x = 5`)
+  // and exclude comparisons or compound conditions
+  const assignmentRegex = /^([a-zA-Z_$][a-zA-Z0-9_$]*)\s*=\s*[^=]+$/;
 
   // Iterate through each line of code
   for (let i = 0; i < lines.length; i++) {
     let line = lines[i].trim();
 
-    // Check if the line contains an assignment (contains '=')
-    if (line.includes('=')) {
-      let parts = line.split('=');  // Split at the equal sign to extract variable name
-      let variableName = parts[0].trim();  // Extract the variable name (before '=')
+    // Skip lines starting with 'for' or those that don't match a simple assignment
+    if (line.startsWith('for') || !assignmentRegex.test(line)) {
+      continue; // Skip processing this line
+    }
 
-      console.log(`Processing line: "${line}"`);
-      console.log(`Extracted variable: "${variableName}"`);
+    let parts = line.split('='); // Split at the equal sign to extract variable name
+    let variableName = parts[0].trim(); // Extract the variable name (before '=')
 
-      // If the variable has not been declared yet, declare it with 'let'
-      if (!declaredVariables[variableName]) {
-        lines[i] = `let ${variableName} = ${parts[1].trim()};`;  // Modify to use 'let' with the variable name preserved
-          //eval(lines[i]);
-        declaredVariables[variableName] = true;  // Mark the variable as declared
-      } else {
-        lines[i] = `${variableName} = ${parts[1].trim()};`;  // Modify to use '=' for subsequent assignments
-      }
+    console.log(`Processing line: "${line}"`);
+    console.log(`Extracted variable: "${variableName}"`);
+
+    // If the variable has not been declared yet, declare it with 'let'
+    if (!declaredVariables[variableName]) {
+      lines[i] = `let ${variableName} = ${parts[1].trim()};`; // Modify to use 'let'
+      declaredVariables[variableName] = true; // Mark the variable as declared
+    } else {
+      // Keep the '=' assignment for already declared variables
+      lines[i] = `${variableName} = ${parts[1].trim()};`;
     }
   }
 
-  return lines.join('\n');  // Join the modified lines back together
+  return lines.join('\n'); // Join the modified lines back together
 }
+
 
 
 //NEW SHIT

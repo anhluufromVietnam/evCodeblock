@@ -515,7 +515,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "math_add",
-    "message0": "%1 + %2",
+    "message0": "%1 + %2  %3",
     "args0": [
       {
         "type": "input_value",
@@ -526,14 +526,16 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         "type": "input_value",
         "name": "NUM2",
         "value": 0
-      }
+      },
+      
+      { "type": "field_label", "name": "COLON", "text": "" }
     ],
     "output": "Number",
     "colour": 230
   },
   {
     "type": "math_subtract",
-    "message0": "(%1) - (%2)",
+    "message0": "%1 - %2  %3",
     "args0": [
       {
         "type": "input_value",
@@ -544,14 +546,16 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         "type": "input_value",
         "name": "B",
         "check": "Number"
-      }
+      },
+      
+      { "type": "field_label", "name": "COLON", "text": "" }
     ],
     "output": "Number",
     "colour": 230
   },
   {
     "type": "math_multiply",
-    "message0": "(%1) * (%2)",
+    "message0": "%1 * %2 %3",
     "args0": [
       {
         "type": "input_value",
@@ -562,14 +566,16 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         "type": "input_value",
         "name": "B",
         "check": "Number"
-      }
+      },
+      
+      { "type": "field_label", "name": "COLON", "text": "" }
     ],
     "output": "Number",
     "colour": 230
   },
   {
     "type": "math_divide",
-    "message0": "(%1) / (%2)",
+    "message0": "%1 / %2 %3",
     "args0": [
       {
         "type": "input_value",
@@ -580,7 +586,9 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         "type": "input_value",
         "name": "B",
         "check": "Number"
-      }
+      },
+      
+      { "type": "field_label", "name": "COLON", "text": "" }
     ],
     "output": "Number",
     "colour": 230
@@ -661,7 +669,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       },
       { "type": "field_label", "name": "COLON", "text": "" }
     ],
-    "output": "Boolean",
+    "output": "Number",
     "colour": 230
   },
   //VAR

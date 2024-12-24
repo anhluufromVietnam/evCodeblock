@@ -393,11 +393,11 @@ jsonGenerator.forBlock['math_compare'] = function (block, generator) {
   const a = generator.valueToCode(block, 'A', Order.ATOMIC) || '0';
   const b = generator.valueToCode(block, 'B', Order.ATOMIC) || '0';
   const operator = block.getFieldValue('OP');
-  let jsOperator;
+  let jsOperator = '==';
 
   switch (operator) {
     case 'EQ':
-      jsOperator = '===';
+      jsOperator = '==';
       break;
     case 'GT':
       jsOperator = '>';
@@ -412,7 +412,7 @@ jsonGenerator.forBlock['math_compare'] = function (block, generator) {
       jsOperator = '<=';
       break;
     default:
-      jsOperator = '===';
+      jsOperator = '==';
   }
 
   const result = `${a} ${jsOperator} ${b}`;

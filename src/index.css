@@ -100,7 +100,7 @@ code {
 
 /* Generated Code display area */
 #generatedCode {
-  flex-grow: 0.7;
+  flex-grow: 0.6;
   background-color: rgb(247, 240, 228);
   padding: 10px;
   border-radius: 4px; /* Bo tròn góc */

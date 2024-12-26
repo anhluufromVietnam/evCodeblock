@@ -2,25 +2,149 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <title>Eduverse SH</title>
+    <meta charset="utf-8" />
+    <title>Eduverse SH3D</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three/build/three.module.js",
+                "STLLoader": "https://unpkg.com/three/examples/jsm/loaders/STLLoader.js",
+                "OrbitControls": "https://unpkg.com/three/examples/jsm/controls/OrbitControls.js"
+            }
+        }
+    </script>
 </head>
 
 <body>
-  <div id="pageContainer">
-    <div id="logo"></div> 
-    <div id="contentContainer">
-        <div id="blocklyDiv"></div>
-        <div id="outputPane">
-            <pre id="generatedCode"><code></code></pre>
-            <div id="buttonsContainer">
-                <button id="runButton" class="square-button"></button> <!-- Run Button -->
-                <button id="stopButton" class="square-button"></button> <!-- Stop Button -->
+    <div id="pageContainer">
+        <div id="logo"></div>
+        <div id="contentContainer">
+            <div id="blocklyDiv"></div>
+            <div id="outputPane">
+                <pre id="generatedCode"><code></code></pre>
+                <div id="buttonsContainer">
+                    <button id="runButton" class="square-button"></button> <!-- Run Button -->
+                    <button id="stopButton" class="square-button"></button> <!-- Stop Button -->
+                </div>
+                <div id="output"></div>
             </div>
-            <!-- <div id="output"></div> -->
         </div>
     </div>
-</div>
+    <script type="module">
+        import * as THREE from 'three';
+        import { STLLoader } from 'STLLoader';
+        import { OrbitControls } from 'OrbitControls';
+
+        // Fixed dimensions for the rendering area
+        const width = 300, height = 400;
+
+        // Scene, Camera, and Renderer Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(70, width / height, 0.1, 100);
+        camera.position.set(0, 0, 5); // Adjust camera position to view the scene
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(width, height);
+
+        // Append the renderer's canvas to the #output div
+        const outputDiv = document.getElementById('output');
+        outputDiv.style.width = `${width}px`;
+        outputDiv.style.height = `${height}px`;
+        outputDiv.style.overflow = 'hidden'; // Ensures no overflow
+        outputDiv.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true; // Adds smooth damping to interactions
+        controls.dampingFactor = 0.05; // How smooth the damping is
+        controls.rotateSpeed = 1.0; // Adjust the speed of rotation
+        controls.update(); // Required to apply initial settings
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(5, 5, 5).normalize();
+        scene.add(directionalLight);
+
+        // Load Texture
+        const textureLoader = new THREE.TextureLoader();
+        const texture = textureLoader.load('texture.png'); // Replace with your texture file path
+
+        // Array of STL files
+        const stlFiles = ['file.stl', 'file1.stl'];
+        let currentFileIndex = 0;
+        let currentMesh;
+
+        // Function to Load STL File
+        function loadSTL(file) {
+            if (currentMesh) {
+                scene.remove(currentMesh); // Remove the previous mesh
+            }
+            const loader = new STLLoader();
+            loader.load(
+                file,
+                (geometry) => {
+                    const material = new THREE.MeshStandardMaterial({
+                        map: texture, // Apply the texture as the material map
+                    });
+                    currentMesh = new THREE.Mesh(geometry, material);
+
+                    // Compute the bounding box to center the model
+                    geometry.computeBoundingBox();
+                    const boundingBox = geometry.boundingBox;
+
+                    // Calculate the center of the bounding box
+                    const centerX = (boundingBox.max.x + boundingBox.min.x) / 2;
+                    const centerY = (boundingBox.max.y + boundingBox.min.y) / 2;
+                    const centerZ = (boundingBox.max.z + boundingBox.min.z) / 2;
+
+                    // Center the geometry
+                    geometry.translate(-centerX, -centerY, -centerZ);
+
+                    scene.add(currentMesh);
+
+                    // Adjust camera position to view the centered model
+                    const size = Math.max(
+                        boundingBox.max.x - boundingBox.min.x,
+                        boundingBox.max.y - boundingBox.min.y,
+                        boundingBox.max.z - boundingBox.min.z
+                    );
+                    camera.position.set(0, 0, size * 2); // Set the camera distance based on model size
+                    controls.update();
+                },
+                (xhr) => {
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                },
+                (error) => {
+                    console.error('An error occurred while loading the STL file:', error);
+                }
+            );
+        }
+
+
+        // Initial Load
+        loadSTL(stlFiles[currentFileIndex]);
+
+        // Button Event Listeners
+        document.getElementById('nextButton').addEventListener('click', () => {
+            currentFileIndex = (currentFileIndex + 1) % stlFiles.length;
+            loadSTL(stlFiles[currentFileIndex]);
+        });
+
+        document.getElementById('previousButton').addEventListener('click', () => {
+            currentFileIndex = (currentFileIndex - 1 + stlFiles.length) % stlFiles.length;
+            loadSTL(stlFiles[currentFileIndex]);
+        });
+
+        // Render Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
 </body>
 
 </html>

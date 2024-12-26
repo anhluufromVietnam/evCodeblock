@@ -677,7 +677,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
 
   {
     "type": "variables_set",
-    "message0": "set %1 to %2",
+    "message0": "đặt %1 thành %2",
     "args0": [
       {
         "type": "field_input",
@@ -697,7 +697,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "variables_get",
-    "message0": "get %1",
+    "message0": "%1",
     "args0": [
       {
         "type": "field_input",
@@ -708,6 +708,27 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "output": null,
     "colour": 330,
     "tooltip": "Retrieve the value of a dynamically created variable.",
+    "helpUrl": ""
+  },
+  
+  {
+    "type": "math_change",
+    "message0": "thay đổi một lượng %1 bằng %2",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "VAR",
+        "text": "item"  // Default name, but user can change it
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 330,
+    "tooltip": "Assign a value to a dynamically created variable.",
     "helpUrl": ""
   }
 

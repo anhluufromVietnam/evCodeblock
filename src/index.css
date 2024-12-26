@@ -80,10 +80,14 @@ code {
 }
 
 /* Output display */
+/* Output display */
 #output {
   margin-top: 1rem;
-  flex-grow: 1;
+  width: 300px; /* Fixed width */
+  height: 300px; /* Fixed height */
   background-color: #eeeeee;
   padding: 10px;
   border-radius: 4px;
+  overflow: auto; /* Ensures scrollability for overflowing content */
+  box-sizing: border-box; /* Ensures padding is included in width/height */
 }

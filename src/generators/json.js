@@ -103,93 +103,49 @@ jsonGenerator.forBlock['object'] = function (block, generator) {
 jsonGenerator.forBlock['move_forward'] = function (block, generator) {
   const value = generator.valueToCode(
     block, 'MEMBER_VALUE', Order.ATOMIC);
-  const code = `sendData("W");\n` + `await delay(${value});\n`;
+  const code = `sendData("W");\n` + `await delay(${value});\n` + `sendData("F");\n`;
   return code;
 };
 
 jsonGenerator.forBlock['move_backward'] = function (block, generator) {
   const value = generator.valueToCode(
     block, 'MEMBER_VALUE', Order.ATOMIC);
-  const code = `sendData("S");\n` + `await delay(${value});\n`;
+  const code = `sendData("S");\n` + `await delay(${value});\n` + `sendData("F");\n`;
   return code;
 };
 
 jsonGenerator.forBlock['turn_left'] = function (block, generator) {
   const value = generator.valueToCode(
     block, 'MEMBER_VALUE', Order.ATOMIC);
-  const code = `sendData("A");\n` + `await delay(${value});\n`;
+  const code = `sendData("A");\n` + `await delay(${value});\n` + `sendData("F");\n`;
   return code;
 };
 
 jsonGenerator.forBlock['turn_right'] = function (block, generator) {
   const value = generator.valueToCode(
     block, 'MEMBER_VALUE', Order.ATOMIC);
-  const code = `sendData("D");\n` + `await delay(${value});\n`;
+  const code = `sendData("D");\n` + `await delay(${value});\n` + `sendData("F");\n`;
   return code;
 };
 
 //Thao tác di chuyển vĩnh cửu
 jsonGenerator.forBlock['move_forward_infi'] = function (block, generator) {
-  const code = `
-    if (!running) {
-      running = true;
-      const moveForward = () => {
-        if (running) {
-          sendData("W");
-          requestAnimationFrame(moveForward); 
-        }
-      };
-      moveForward();
-    }
-  `;
+  const code = `sendData("W");\n`;
   return code;
 };
 
 jsonGenerator.forBlock['move_backward_infi'] = function (block, generator) {
-  const code = `
-    if (!running) {
-      running = true;
-      const moveBackward = () => {
-        if (running) {
-          sendData("S");
-          requestAnimationFrame(moveBackward); 
-        }
-      };
-      moveBackward();
-    }
-  `;
+  const code = `sendData("S");\n`;
   return code;
 };
 
 jsonGenerator.forBlock['turn_left_infi'] = function (block, generator) {
-  const code = `
-    if (!running) {
-      running = true;
-      const turnLeft = () => {
-        if (running) {
-          sendData("A");
-          requestAnimationFrame(turnLeft); 
-        }
-      };
-      turnLeft();
-    }
-  `;
+  const code = `sendData("A");\n`;
   return code;
 };
 
 jsonGenerator.forBlock['turn_right_infi'] = function (block, generator) {
-  const code = `
-    if (!running) {
-      running = true;
-      const turnRight = () => {
-        if (running) {
-          sendData("W");
-          requestAnimationFrame(turnRight); 
-        }
-      };
-      turnRight();
-    }
-  `;
+  const code = `sendData("D");\n`;
   return code;
 };
 
@@ -330,6 +286,14 @@ jsonGenerator.forBlock['variables_get'] = function (block) {
   const variable = block.getFieldValue('VAR');  // Retrieve the user-defined variable name
   const code = `${variable}`;  // Return the variable name
   return [code, 0];  // Return the variable with atomic order (no extra operations)
+};
+
+//math_change
+// JSON-based generator for 'variables_get' block
+jsonGenerator.forBlock['math_change'] = function (block) {
+    const variable = block.getFieldValue('VAR');  // Retrieve the user-defined variable name
+    const value = jsonGenerator.valueToCode(block, 'VALUE', 0);  // Get the value connected to the 'VALUE' input
+    return `${variable} = ${variable}+${value};\n`;  // Assign without 'let'
 };
 
 //KIEN SON START

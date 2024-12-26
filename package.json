@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "blockly": "^11.0.0",
+    "copy-webpack-plugin": "^12.0.2",
     "express": "^4.21.2",
     "winston": "^3.17.0"
   }

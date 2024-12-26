@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Base config that applies to either development or production mode.
 const config = {
@@ -33,6 +34,13 @@ const config = {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),
+    new CopyWebpackPlugin({
+          patterns: [
+            { from: 'src/file.stl', to: 'file.stl' }, // Copy STL file
+            { from: 'src/file1.stl', to: 'file1.stl' },
+            { from: 'src/texture.png', to: 'texture.png' }, // Copy texture file
+          ],
+        }),
   ],
 };
 

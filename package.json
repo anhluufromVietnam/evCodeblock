@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack serve --open --mode development"
+    "start": "webpack --mode production && node server.js",
+    "heroku-postbuild": "webpack --mode production"
   },
   "keywords": [
     "blockly"
@@ -24,6 +25,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "blockly": "^11.0.0"
+    "blockly": "^11.0.0",
+    "express": "^4.21.2",
+    "winston": "^3.17.0"
   }
 }

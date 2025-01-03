@@ -20,7 +20,6 @@ const codeDiv = document.getElementById('generatedCode').firstChild;
 const blocklyDiv = document.getElementById('blocklyDiv');
 const ws = Blockly.inject(blocklyDiv, {toolbox});
 
-
 //ANHLUU MODIFIED FOR CODE VAR
 // Function to process generated code and ensure only the first instance of each variable is declared with 'let'
 function processCodeWithLet(code) {

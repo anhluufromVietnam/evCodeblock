@@ -196,6 +196,14 @@ export const toolbox = {
             'contents': [
                 {
                     'kind': 'block',
+                    'type': 'SERVO1'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'SERVO2'
+                },
+                {
+                    'kind': 'block',
                     'type': 'turn_up'
                 },
                 {

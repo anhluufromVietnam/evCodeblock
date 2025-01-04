@@ -408,16 +408,51 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "nextStatement": null,
     "colour": 210,
   },
-  // Linh kiện
+  // Linh kiện (SERVO)
   {
-    "type": "turn_up",
+    "type": "SERVO1",
     "message0": "%1",
     "args0": [
       {
         "type": "field_label",
-        "name": "MEMBER_NAME",
-        "text": "Quay lên 90 độ"
-      },
+        "name": "MEM",
+        "text": "Servo1"
+      }    ],
+    "output": "String",
+    "colour": "00e4ff",
+    "tooltip": "Checks if the selected keyboard key is currently pressed",
+    "helpUrl": ""
+  },
+  {
+    "type": "SERVO2",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_label",
+        "name": "MEM",
+        "text": "Servo2"
+      }    ],
+    "output": "String",
+    "colour": "00e4ff",
+    "tooltip": "Checks if the selected keyboard key is currently pressed",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "turn_up",
+    "message0": "%1 %2 %3",
+    "args0": [
+        {
+"type": "field_label",
+"name": "MEMBER_NAME",
+"text": "Quay xuống : "
+},
+        {
+          "type": "input_value",
+          "name": "MEMBER_VALUE",
+          // "check": "DegreeNumber"
+        },
+        { "type": "field_label", "name": "COLON", "text": "độ" }
     ],
     "previousStatement": null,
     "nextStatement": null,
@@ -425,26 +460,39 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
   },
   {
     "type": "turn_down",
-    "message0": "%1",
-    "args0": [{
+    "message0": "%1 %2 %3",
+    "args0": [
+              {
       "type": "field_label",
       "name": "MEMBER_NAME",
-      "text": "Quay xuống 90 độ"
-    }],
+      "text": "Quay xuống : "
+    },
+              {
+                "type": "input_value",
+                "name": "MEMBER_VALUE",
+                // "check": "DegreeNumber"
+              },
+              { "type": "field_label", "name": "COLON", "text": "độ" }
+              ],
     "previousStatement": null,
     "nextStatement": null,
     "colour": 180,
   },
   {
     "type": "rotate",
-    "message0": "%1 %2 %3",
+    "message0": "%1 động cơ : %2 khoảng %3 %4",
     "args0": [
-      { "type": "field_label", "name": "MEMBER_NAME", "text": "Quay " },
-      { "type": "field_label", "name": "COLON", "text": ":" }, {
+      { "type": "field_label", "name": "MEMBER_NAME", "text": "Quay" },
+      {
+          "type": "input_value",
+          "name": "SER_VALUE"
+      },
+      {
         "type": "input_value",
         "name": "MEMBER_VALUE",
         // "check": "DegreeNumber"
-      }
+      },
+      { "type": "field_label", "name": "COLON", "text": "độ" }
     ],
     "previousStatement": null,
     "nextStatement": null,

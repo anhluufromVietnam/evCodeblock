@@ -4,8 +4,8 @@ body {
   max-width: 100vw;
   font-family: 'Open Sans', serif;
   font-weight: bold;
-  background-color: #a0e3ff;
-  /* Màu nền cho toàn bộ trang */
+  text-align: center;
+  background-color: #a0e3ff;  /* Màu nền cho toàn bộ trang */
 }
 
 /* Header styling */
@@ -189,6 +189,26 @@ code {
   /* Ensure scrollability for overflowing content */
   box-sizing: border-box;
   /* Include padding in width/height */
+}
+
+/* Changes color of the icon to white. */
+.customIcon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-bottom: 4px; /* Khoảng cách giữa icon và nhãn */
+  background-color: transparent; /* Màu mặc định sẽ được đặt qua JavaScript */
+}
+
+/* Stacks the icon on top of the label. */
+.blocklyTreeRowContentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blocklyTreeRow {
+  height: initial;
 }
 
 /* Makes our label white. */

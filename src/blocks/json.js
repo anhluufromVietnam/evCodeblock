@@ -437,7 +437,6 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "tooltip": "Checks if the selected keyboard key is currently pressed",
     "helpUrl": ""
   },
-
   {
     "type": "turn_up",
     "message0": "%1 %2 %3",
@@ -478,11 +477,52 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
     "nextStatement": null,
     "colour": 180,
   },
+  //Chuẩn
   {
     "type": "rotate",
     "message0": "%1 động cơ : %2 khoảng %3 %4",
     "args0": [
       { "type": "field_label", "name": "MEMBER_NAME", "text": "Quay" },
+      {
+          "type": "input_value",
+          "name": "SER_VALUE"
+      },
+      {
+        "type": "input_value",
+        "name": "MEMBER_VALUE",
+        // "check": "DegreeNumber"
+      },
+      { "type": "field_label", "name": "COLON", "text": "độ" }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+  },
+  {
+    "type": "rotate_up",
+    "message0": "%1 động cơ : %2 lên khoảng %3 %4",
+    "args0": [
+      { "type": "field_label", "name": "MEMBER_NAME", "text": "Nâng" },
+      {
+          "type": "input_value",
+          "name": "SER_VALUE"
+      },
+      {
+        "type": "input_value",
+        "name": "MEMBER_VALUE",
+        // "check": "DegreeNumber"
+      },
+      { "type": "field_label", "name": "COLON", "text": "độ" }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+  },
+  {
+    "type": "rotate_down",
+    "message0": "%1 động cơ : %2 xuống khoảng %3 %4",
+    "args0": [
+      { "type": "field_label", "name": "MEMBER_NAME", "text": "Hạ" },
       {
           "type": "input_value",
           "name": "SER_VALUE"

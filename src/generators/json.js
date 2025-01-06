@@ -3,6 +3,8 @@ import * as Blockly from 'blockly';
 
 export const jsonGenerator = new Blockly.Generator('JSON');
 
+var s1a = 0;
+var s2a = 0;
 
 const Order = {
   ATOMIC: 0,
@@ -175,28 +177,83 @@ jsonGenerator.forBlock['stopMovement'] = function (block, generated) {
 //   const code = `Quay xuống (value?);\n`;
 //   return code;
 // };
-
+//SERVO ROTATE
  jsonGenerator.forBlock['rotate'] = function (block, generator) {
    const value = generator.valueToCode(
      block, 'MEMBER_VALUE', Order.ATOMIC);
      const sv = generator.valueToCode(
        block, 'SER_VALUE', Order.ATOMIC);
-     if (sv == "Servo1")
+     const num = parseInt(value, 10); // Specify base 10
+     if ((sv == "Servo1") && (num >= 0) && (num <=180))
          {
+             s1a = num;
              const code = `sendData("` + `Sonemove${value}` + `");\n`;
              return code;
          }
-     if (sv == "Servo2")
+     if ((sv == "Servo2") && (num >= 0) && (num <=180))
          {
+             s2a = num;
              const code = `sendData("` + `Stwomove${value}` + `");\n`;
              return code;
          }
      else
      {
-         alert(sv);
+         alert("Bạn chưa nhập góc hoặc là góc < 0 hoặc > 180 độ");
          return null;
      }
  };
+
+jsonGenerator.forBlock['rotate_up'] = function (block, generator) {
+  const value = generator.valueToCode(
+    block, 'MEMBER_VALUE', Order.ATOMIC);
+    const sv = generator.valueToCode(
+      block, 'SER_VALUE', Order.ATOMIC);
+    const num = parseInt(value, 10); // Specify base 10
+    if ((sv == "Servo1") && (s1a+num >= 0) && (s1a+num <=180))
+        {
+            s1a = s1a+num;
+            const code = `sendData("` + `Sonemove${s1a}` + `");\n`;
+            return code;
+        }
+    if ((sv == "Servo2") && (s2a+num >= 0) && (s2a+num <=180))
+        {
+            s2a = s2a+num;
+            const code = `sendData("` + `Stwomove${s2a}` + `");\n`;
+            return code;
+        }
+    else
+    {
+        alert("Bạn chưa nhập góc hoặc là góc < 0 hoặc > 180 độ");
+        return null;
+    }
+};
+
+
+jsonGenerator.forBlock['rotate_down'] = function (block, generator) {
+  const value = generator.valueToCode(
+    block, 'MEMBER_VALUE', Order.ATOMIC);
+    const sv = generator.valueToCode(
+      block, 'SER_VALUE', Order.ATOMIC);
+    const num = parseInt(value, 10); // Specify base 10
+    if ((sv == "Servo1") && (s1a-num >= 0) && (s1a-num <=180))
+        {
+            s1a = s1a-num;
+            const code = `sendData("` + `Sonemove${s1a}` + `");\n`;
+            return code;
+        }
+    if ((sv == "Servo2") && (s2a-num >= 0) && (s2a-num <=180))
+        {
+            s2a = s2a-num;
+            const code = `sendData("` + `Stwomove${s2a}` + `");\n`;
+            return code;
+        }
+    else
+    {
+        alert("Bạn chưa nhập góc hoặc là góc < 0 hoặc > 180 độ");
+        return null;
+    }
+};
+
 
 //Giá trị
 jsonGenerator.forBlock['second'] = function (block, generated) {

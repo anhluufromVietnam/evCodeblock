@@ -3,6 +3,7 @@ body {
   margin: 0;
   max-width: 100vw;
   font-family: Arial, sans-serif;
+  background-color: #a0e3ff;
 }
 
 /* Overflow handling for code output */
@@ -14,9 +15,28 @@ code {
 /* Main container */
 #pageContainer {
   display: flex;
+  flex-direction: column; /* Arrange items vertically */
   width: 100%;
   max-width: 100vw;
   height: 100vh;
+}
+
+/* Logo styling */
+#logo {
+  width: 200px; /* Width of the logo */
+  height: 100px; /* Height of the logo */
+  background-image: url('images/logo.png'); /* Path to logo */
+  background-size: contain; /* Ensure logo fits */
+  background-repeat: no-repeat; /* No repeat */
+  margin: 0 auto; /* Center the logo */
+}
+
+/* Content container for Blockly and output */
+#contentContainer {
+  display: flex;
+  flex: 1; /* Take remaining space */
+  height: 100%; /* Full height */
+  border-radius: 4px;
 }
 
 /* Workspace styling */
@@ -31,11 +51,11 @@ code {
 #outputPane {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 600px;
   flex-shrink: 0;
   overflow: auto;
   padding: 1rem;
-  background-color: #ffffff;
+  background-color: #a0e3ff;
 }
 
 /* Container for buttons */
@@ -83,7 +103,7 @@ code {
 /* Output display */
 #output {
   margin-top: 1rem;
-  width: 300px; /* Fixed width */
+  width: 600px; /* Fixed width */
   height: 300px; /* Fixed height */
   background-color: #eeeeee;
   padding: 10px;

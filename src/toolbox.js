@@ -204,11 +204,11 @@ export const toolbox = {
                 },
                 {
                     'kind': 'block',
-                    'type': 'turn_up'
+                    'type': 'rotate_up'
                 },
                 {
                     'kind': 'block',
-                    'type': 'turn_down'
+                    'type': 'rotate_down'
                 },
                 {
                     'kind': 'block',

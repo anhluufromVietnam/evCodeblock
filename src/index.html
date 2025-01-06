@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <title>Eduverse SH3D</title>
     <script type="importmap">
@@ -12,20 +13,24 @@
             }
         }
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="pageContainer">
-        <div id="blocklyDiv"></div>
-      <div id="outputPane">
-        <pre id="generatedCode"><code></code></pre>
-        <div id="buttonsContainer">
-                  <button id="runButton" class="square-button"></button> <!-- Run Button -->
-                  <button id="stopButton" class="square-button"></button> <!-- Stop Button -->
-                  <button id="previousButton">Previous</button>
-                  <button id="nextButton">Next</button>
+        <div id="logo"></div>
+        <div id="contentContainer">
+            <div id="blocklyDiv"></div>
+            <div id="outputPane">
+                <pre id="generatedCode"><code></code></pre>
+                <div id="buttonsContainer">
+                    <button id="runButton" class="square-button"></button> <!-- Run Button -->
+                    <button id="stopButton" class="square-button"></button> <!-- Stop Button -->
+                    <button id="previousButton">Previous</button>
+                    <button id="nextButton">Next</button>
                 </div>
-        <div id="output"></div>
-      </div>
+                <div id="output"></div>
+            </div>
+        </div>
     </div>
     <script type="module">
         import * as THREE from 'three';
@@ -33,7 +38,7 @@
         import { OrbitControls } from 'OrbitControls';
 
         // Fixed dimensions for the rendering area
-        const width = 300, height = 400;
+        const width = 600, height = 400;
 
         // Scene, Camera, and Renderer Setup
         const scene = new THREE.Scene();
@@ -142,5 +147,6 @@
 
         animate();
     </script>
-  </body>
+</body>
+
 </html>

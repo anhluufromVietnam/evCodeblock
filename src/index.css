@@ -2,50 +2,52 @@
 body {
   margin: 0;
   max-width: 100vw;
-  font-family: Arial, sans-serif;
-  background-color: #a0e3ff; /* Màu nền cho toàn bộ trang */
+  font-family: 'Open Sans', serif;
+  font-weight: bold;
+  background-color: #a0e3ff;
+  /* Màu nền cho toàn bộ trang */
 }
 
 /* Header styling */
 #header {
-  background-color: #ffffff; /* Màu nền cho header */
-  padding: 10px; /* Khoảng cách bên trong */
-  text-align: center; /* Căn giữa nội dung */
-  border-bottom: 1px solid #ccc; /* Đường viền dưới */
+  background-color: #ffffff;
+  /* Màu nền cho header */
+  padding: 10px;
+  /* Khoảng cách bên trong */
+  text-align: center;
+  /* Căn giữa nội dung */
+  border-bottom: 1px solid #ccc;
+  /* Đường viền dưới */
 }
 
 #logo {
-  width: 200px; /* Chiều rộng của logo */
-  height: 100px; /* Chiều cao của logo */
-  background-image: url('images/logo.png'); /* Đường dẫn đến logo */
-  background-size: contain; /* Đảm bảo logo nằm gọn trong div */
-  background-repeat: no-repeat; /* Không lặp lại hình ảnh */  background-color: #a0e3ff;
+  width: 200px;
+  height: 100px;
+  background-image: url('images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #a0e3ff;
+  margin: 0 auto;
+  padding: 5px;
 }
 
 /* Main container */
 #pageContainer {
   display: flex;
-  flex-direction: column; /* Arrange items vertically */
+  flex-direction: column;
+  /* Arrange items vertically */
   width: 100%;
   max-width: 100vw;
   height: 100vh;
 }
 
-/* Logo styling */
-#logo {
-  width: 200px; /* Width of the logo */
-  height: 100px; /* Height of the logo */
-  background-image: url('images/logo.png'); /* Path to logo */
-  background-size: contain; /* Ensure logo fits */
-  background-repeat: no-repeat; /* No repeat */
-  margin: 0 auto; /* Center the logo */
-}
-
 /* Content container for Blockly and output */
 #contentContainer {
   display: flex;
-  flex: 1; /* Take remaining space */
-  height: 100%; /* Full height */
+  flex: 1;
+  /* Take remaining space */
+  height: 100%;
+  /* Full height */
   border-radius: 4px;
 }
 
@@ -81,14 +83,18 @@ code {
   width: 100%;
   max-width: 100vw;
   height: 100vh;
-  flex-direction: column; /* Sắp xếp theo chiều dọc */
-  align-items: center; /* Căn giữa các phần tử */
+  flex-direction: column;
+  /* Sắp xếp theo chiều dọc */
+  align-items: center;
+  /* Căn giữa các phần tử */
 }
 
 #contentContainer {
   display: flex;
-  flex-direction: row; /* Sắp xếp theo chiều ngang */
-  width: 100%; /* Đảm bảo chiều rộng đầy đủ */
+  flex-direction: row;
+  /* Sắp xếp theo chiều ngang */
+  width: 100%;
+  /* Đảm bảo chiều rộng đầy đủ */
   height: 100%;
 }
 
@@ -98,7 +104,8 @@ code {
   height: 95%;
   min-width: 600px;
   background-color: #f0f0f0;
-  border-radius: 4px; /* Bo tròn góc */
+  border-radius: 4px;
+  /* Bo tròn góc */
 }
 
 /* Output Pane styling */
@@ -109,15 +116,19 @@ code {
   flex-shrink: 0;
   overflow: auto;
   padding: 1rem;
-  background-color: #a0e3ff; /* Màu nền cho toàn bộ trang */
-  border-radius: 4px; /* Bo tròn góc */
+  background-color: #a0e3ff;
+  /* Màu nền cho toàn bộ trang */
+  border-radius: 4px;
+  /* Bo tròn góc */
 }
 
 /* Container for buttons */
 #buttonsContainer {
   display: flex;
-  flex-direction: row; /* Side by side buttons */
-  gap: 10px; /* Space between buttons */
+  flex-direction: row;
+  /* Side by side buttons */
+  gap: 10px;
+  /* Space between buttons */
   margin-bottom: 1rem;
 }
 
@@ -126,24 +137,24 @@ code {
   width: 40px;
   height: 40px;
   border: none;
-  border-radius: 4px; /* Bo tròn góc */
-  border-radius: 2px;
   cursor: pointer;
   font-size: 16px;
   background-size: 20px;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #5ce1e6; 
+  background-color: #53b0ee;
   border-radius: 4px;
 }
 
 #runButton {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
+  /* Green */
   background-image: url('images/start.png');
 }
 
 #stopButton {
-  background-color: #f44336; /* Red */
+  background-color: #f44336;
+  /* Red */
   background-image: url('images/stop.png');
 }
 
@@ -161,14 +172,38 @@ code {
 /* Output display */
 #output {
   margin-top: 1rem;
-  width: 600px; /* Fixed width */
-  height: 300px; /* Fixed height */
+  width: 600px;
+  /* Fixed width */
+  height: 300px;
+  /* Fixed height */
   background-color: #eeeeee;
   padding: 10px;
-  border-radius: 4px; /* Bo tròn góc */
-  overflow: auto; /* Ensures scrollability for overflowing content */
-  box-sizing: border-box; /* Ensures padding is included in width/height */
   border-radius: 4px;
-  overflow: auto; /* Ensure scrollability for overflowing content */
-  box-sizing: border-box; /* Include padding in width/height */
+  /* Bo tròn góc */
+  overflow: auto;
+  /* Ensures scrollability for overflowing content */
+  box-sizing: border-box;
+  /* Ensures padding is included in width/height */
+  border-radius: 4px;
+  overflow: auto;
+  /* Ensure scrollability for overflowing content */
+  box-sizing: border-box;
+  /* Include padding in width/height */
+}
+
+/* Makes our label white. */
+.blocklyTreeLabel {
+  color: black;
+}
+
+/* Adds padding around the group of categories and separators. */
+.blocklyToolboxContents {
+  padding: 0.5em;
+}
+
+/* Adds space between the categories, rounds the corners and adds space around the label. */
+.blocklyTreeRow {
+  padding: 4px;
+  margin-bottom: 0.5em;
+  border-radius: 4px;
 }

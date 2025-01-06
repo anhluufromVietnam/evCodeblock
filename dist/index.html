@@ -4,7 +4,25 @@
                 "STLLoader": "https://unpkg.com/three/examples/jsm/loaders/STLLoader.js",
                 "OrbitControls": "https://unpkg.com/three/examples/jsm/controls/OrbitControls.js"
             }
-        }</script><link rel="stylesheet" href="toolbox_style.css"><script src="custom_category.js"></script><script defer="defer" src="bundle.js"></script></head><body><div id="pageContainer"><div id="logo"></div><div id="contentContainer"><div id="blocklyDiv"></div><div id="outputPane"><pre id="generatedCode"></pre><div id="buttonsContainer"><button id="runButton" class="square-button"></button> <button id="stopButton" class="square-button"></button> <button id="previousButton">Previous</button> <button id="nextButton">Next</button></div><div id="output"></div></div></div></div><script type="module">import * as THREE from 'three';
+        }</script><script>class CustomCategory extends Blockly.ToolboxCategory {
+            /**
+             * Constructor for a custom category.
+             * @override
+             */
+            constructor(categoryDef, toolbox, opt_parent) {
+                super(categoryDef, toolbox, opt_parent);
+            }
+
+            /** @override */
+            addColourBorder_(colour) {
+                this.rowDiv_.style.backgroundColor = colour;
+            }            
+        }
+
+        Blockly.registry.register(
+            Blockly.registry.Type.TOOLBOX_ITEM,
+            Blockly.ToolboxCategory.registrationName,
+            CustomCategory, true);</script><script defer="defer" src="bundle.js"></script></head><body><div id="pageContainer"><div id="logo"></div><div id="contentContainer"><div id="blocklyDiv"></div><div id="outputPane"><pre id="generatedCode"></pre><div id="buttonsContainer"><button id="runButton" class="square-button"></button> <button id="stopButton" class="square-button"></button> <button id="previousButton">Previous</button> <button id="nextButton">Next</button></div><div id="output"></div></div></div></div><script type="module">import * as THREE from 'three';
         import { STLLoader } from 'STLLoader';
         import { OrbitControls } from 'OrbitControls';
 

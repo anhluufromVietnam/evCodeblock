@@ -129,7 +129,7 @@ export const toolbox = {
                 {
                     'kind': 'category',
                     'name': 'Cảm biến',
-                    "colour": "00e4ff",
+                    "colour": "57E8EF",
                     'contents': [
                         {
                             'kind': 'block',

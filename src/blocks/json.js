@@ -224,7 +224,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       }
     ],
     "output": "Boolean",
-    "colour": "00e4ff",
+    "colour": "57E8EF",
     "tooltip": "Checks if the selected keyboard key is currently pressed",
     "helpUrl": ""
   },
@@ -248,7 +248,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       }
     ],
     "output": "Number",
-    "colour": "00e4ff",
+    "colour": "57E8EF",
     "tooltip":
       "Checks the status of Ultrasonic Sensor 1, such as distance or object presence",
     "helpUrl": ""
@@ -273,7 +273,7 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
       }
     ],
     "output": "Number",
-    "colour": "00e4ff",
+    "colour": "57E8EF",
     "tooltip":
       "Checks the status of Ultrasonic Sensor 2, such as distance or object presence",
     "helpUrl": ""

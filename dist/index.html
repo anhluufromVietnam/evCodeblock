@@ -1,68 +1,10 @@
-<!doctype html><html><head><meta charset="utf-8"/><title>Eduverse SH3D</title><script type="importmap">{
+<!doctype html><html><head><meta charset="utf-8"/><title>Eduverse SH3D</title><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"><script type="importmap">{
             "imports": {
                 "three": "https://unpkg.com/three/build/three.module.js",
                 "STLLoader": "https://unpkg.com/three/examples/jsm/loaders/STLLoader.js",
                 "OrbitControls": "https://unpkg.com/three/examples/jsm/controls/OrbitControls.js"
             }
-        }</script><script>class CustomCategory extends Blockly.ToolboxCategory {
-            /**
-             * Constructor for a custom category.
-             * @override
-             */
-            constructor(categoryDef, toolbox, opt_parent) {
-                super(categoryDef, toolbox, opt_parent);
-            }
-
-            /** @override */
-            addColourBorder_(colour) {
-                this.rowDiv_.style.backgroundColor = colour;
-            }
-
-            /** @override */
-            setSelected(isSelected) {
-                // We do not store the label span on the category, so use getElementsByClassName.
-                var labelDom = this.rowDiv_.getElementsByClassName('blocklyTreeLabel')[0];
-                if (isSelected) {
-                    // Change the background color of the div to white.
-                    this.rowDiv_.style.backgroundColor = 'white';
-                    // Set the colour of the text to the colour of the category.
-                    labelDom.style.color = this.colour_;
-                    // Change the icon background to white.
-                    this.iconDom_.style.backgroundColor = 'white';
-                } else {
-                    // Set the background back to the original colour.
-                    this.rowDiv_.style.backgroundColor = this.colour_;
-                    // Set the text back to white.
-                    labelDom.style.color = 'white';
-                    // Set the icon background to the category colour.
-                    this.iconDom_.style.backgroundColor = this.colour_;
-                }
-                // This is used for accessibility purposes.
-                Blockly.utils.aria.setState(/** @type {!Element} */(this.htmlDiv_),
-                    Blockly.utils.aria.State.SELECTED, isSelected);
-            }
-
-            /** @override */
-            createIconDom_() {
-                // Create a circular icon
-                const icon = document.createElement('div');
-                icon.className = 'customIcon';
-                icon.style.width = '16px';
-                icon.style.height = '16px';
-                icon.style.borderRadius = '50%';
-                icon.style.backgroundColor = this.colour_; // Set initial color to category color
-                return icon;
-            }
-        }
-        const workspace = Blockly.inject('blocklyDiv', {
-            toolbox: document.getElementById('toolbox'),
-            toolboxPosition: 'start',
-        });
-
-        Blockly.registry.register(
-            Blockly.registry.Type.TOOLBOX_ITEM,
-            Blockly.ToolboxCategory.registrationName,
-            CustomCategory, true);</script><script defer="defer" src="bundle.js"></script></head><body><div id="pageContainer"><div id="logo"></div><div id="contentContainer"><div id="blocklyDiv"></div><div id="outputPane"><pre id="generatedCode"></pre><div id="buttonsContainer"><button id="runButton" class="square-button"></button> <button id="stopButton" class="square-button"></button> <button id="previousButton">Previous</button> <button id="nextButton">Next</button></div><div id="output"></div></div></div></div><script type="module">import * as THREE from 'three';
+        }</script><script scr="custom_category.js"></script><script defer="defer" src="bundle.js"></script></head><body><div id="pageContainer"><div id="logo"></div><div id="contentContainer"><div id="blocklyDiv"></div><div id="outputPane"><pre id="generatedCode"></pre><div id="buttonsContainer"><button id="runButton" class="square-button"></button> <button id="stopButton" class="square-button"></button> <button id="previousButton">Previous</button> <button id="nextButton">Next</button></div><div id="output"></div></div></div></div><script type="module">import * as THREE from 'three';
         import { STLLoader } from 'STLLoader';
         import { OrbitControls } from 'OrbitControls';
 

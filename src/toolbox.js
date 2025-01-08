@@ -75,6 +75,7 @@ export const toolbox = {
         {
                     'kind': 'category',
                     'name': 'Hiển thị',
+                    "icon": "fa-eye",
                     "colour": "f500ff",
                     'contents': [
                         {
